@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
- const userSchema= new mongoose.Schema ({
+const userSchema= new mongoose.Schema ({
     firstName:{
         type :String , 
         required: true,
@@ -41,8 +41,16 @@ const mongoose = require('mongoose');
             type: mongoose.Schema.Types.ObjectId,
             ref: "Course"
         }
-    ]
-    ima
+    ],
+    image:{
+        type: String,
+        required: true,
+    },
+    courseProgress:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "CourseProgress"
+    }]
 
 
  })
+ module.exports = mongoose.model("User", userSchema)
